@@ -14,12 +14,10 @@ function transformStateWithClones(state, actions) {
     switch (action.type) {
       case 'addProperties':
         copyState = { ...copyState, ...action.extraData };
-        result.push(copyState);
         break;
 
       case 'clear':
         copyState = {};
-        result.push(copyState);
         break;
 
       case 'removeProperties':
@@ -32,9 +30,9 @@ function transformStateWithClones(state, actions) {
         }
 
         copyState = nextState;
-        result.push(copyState);
         break;
     }
+    result.push(copyState);
   }
 
   return result;
